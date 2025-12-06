@@ -3,7 +3,7 @@ using Core.Interfaces;
 using Health.Data;
 using UnityEngine;
 
-namespace Health.Requirments
+namespace Health.Requirements
 {
     [CreateAssetMenu(menuName = "Shop/Requirements/Health Percent Cost")]
     public class HealthPercentCostRequirement : RequirementBase

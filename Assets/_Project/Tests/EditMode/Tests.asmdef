@@ -1,0 +1,27 @@
+{
+    "name": "Tests",
+    "rootNamespace": "Tests",
+    "references": [
+        "GUID:b7219f033379c7c4dbe560f9e7202fdd",
+        "GUID:4da34d30e70c20d4e9db1a0bbf1c9c87",
+        "GUID:f1d9783c8aa140946a4703b84350101e",
+        "GUID:1d26e24a113745542b60d7ee4e3e020f",
+        "GUID:5cf9b1c273afbe94ead587974992e490",
+        "GUID:e4d5946f30e1f274da485621ffa2f909"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
