@@ -2,7 +2,8 @@
     "name": "VIP",
     "rootNamespace": "",
     "references": [
-        "GUID:b7219f033379c7c4dbe560f9e7202fdd"
+        "GUID:b7219f033379c7c4dbe560f9e7202fdd",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
