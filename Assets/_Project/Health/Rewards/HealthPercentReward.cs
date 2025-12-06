@@ -3,7 +3,7 @@ using Core.Interfaces;
 using Health.Data;
 using UnityEngine;
 
-namespace _Project.Health.Rewards
+namespace Health.Rewards
 {
     [CreateAssetMenu(menuName = "Shop/Rewards/Health Percent Reward")]
     public class HealthPercentReward : RewardBase

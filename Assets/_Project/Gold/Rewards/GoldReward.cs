@@ -1,18 +1,18 @@
 ﻿using Core.Base;
 using Core.Interfaces;
-using Health.Data;
+using Gold.Data;
 using UnityEngine;
 
-namespace Health.Rewards
+namespace Gold.Rewards
 {
-    [CreateAssetMenu(menuName = "Shop/Rewards/Health Reward")]
-    public class HealthReward : RewardBase
+    [CreateAssetMenu(menuName = "Shop/Rewards/Gold Reward")]
+    public class GoldReward : RewardBase
     {
         [SerializeField] private int _amount;
 
         public override void Apply(IPlayerData playerData)
         {
-            var property = playerData.GetProperty<int>(HealthKeys.Health);
+            var property = playerData.GetProperty<int>(GoldKeys.Gold);
             property.Value += _amount;
         }
     }

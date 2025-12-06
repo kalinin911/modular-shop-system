@@ -1,27 +1,27 @@
-﻿using Health.Controllers;
+﻿using Gold.Controllers;
 using Core.Interfaces;
-using Health.Data;
+using Gold.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Health.Views
+namespace _Project.Gold.Views
 {
-    public class HealthView :MonoBehaviour
+    public class GoldView : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _healthText;
+        [SerializeField] private TextMeshProUGUI _goldText;
         [SerializeField] private Button _cheatButton;
         [SerializeField] private int _cheatAmount = 50;
         
         private IPlayerData _playerData;
-        private HealthController _controller;
+        private GoldController _controller;
 
-        public void Initialize(IPlayerData playerData, HealthController controller)
+        public void Initialize(IPlayerData playerData, GoldController controller)
         {
             _playerData = playerData;
             _controller = controller;
 
-            var property = _playerData.GetProperty<int>(HealthKeys.Health);
+            var property = _playerData.GetProperty<int>(GoldKeys.Gold);
             property.OnChanged += UpdateDisplay;
             UpdateDisplay(property.Value);
             
@@ -30,19 +30,19 @@ namespace Health.Views
 
         private void UpdateDisplay(int value)
         {
-            _healthText.text = $"Health: {value}";
+            _goldText.text = $"Gold: {value}";
         }
 
         private void OnCheatClicked()
         {
-            _controller.AddHealth(_cheatAmount);
+            _controller.AddGold(_cheatAmount);
         }
-
+        
         private void OnDestroy()
         {
-            if (_playerData != null && _playerData.HasKey(HealthKeys.Health))
+            if (_playerData != null && _playerData.HasKey(GoldKeys.Gold))
             {
-                _playerData.GetProperty<int>(HealthKeys.Health).OnChanged -= UpdateDisplay;
+                _playerData.GetProperty<int>(GoldKeys.Gold).OnChanged -= UpdateDisplay;
             }
         }
     }

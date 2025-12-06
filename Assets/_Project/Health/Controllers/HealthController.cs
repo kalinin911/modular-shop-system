@@ -1,7 +1,7 @@
 ﻿using Core.Interfaces;
 using Health.Data;
 
-namespace _Project.Health.Controllers
+namespace Health.Controllers
 {
     public class HealthController
     {
