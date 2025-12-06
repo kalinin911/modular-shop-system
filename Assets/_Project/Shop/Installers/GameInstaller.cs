@@ -2,10 +2,13 @@
 using Core.Data;
 using Core.Interfaces;
 using Gold.Controllers;
+using Gold.Data;
 using Gold.Views;
 using Health.Controllers;
+using Health.Data;
 using Health.Views;
 using Location.Controllers;
+using Location.Data;
 using Location.Views;
 using Shop.Config;
 using Shop.Controllers;
@@ -13,6 +16,7 @@ using Shop.Services;
 using Shop.Views;
 using UnityEngine;
 using VIP.Controllers;
+using VIP.Data;
 using VIP.Views;
 
 namespace Shop.Installers
@@ -55,16 +59,18 @@ namespace Shop.Installers
             _locationView.Initialize(playerData, locationController);
             _vipView.Initialize(playerData, vipController);
             _shopView.Initialize(shopController);
-
+            
+            _shopView.OnBundleInfoClicked += SceneNavigator.OpenBundleDetail;
+            
             SubscribeToDataChanges(playerData, shopController);
         }
 
         private void SubscribeToDataChanges(IPlayerData playerData, ShopController shopController)
         {
-            playerData.GetProperty<int>("health").OnChanged += _ => shopController.NotifyAffordabilityChanged();
-            playerData.GetProperty<int>("gold").OnChanged += _ => shopController.NotifyAffordabilityChanged();
-            playerData.GetProperty<string>("location").OnChanged += _ => shopController.NotifyAffordabilityChanged();
-            playerData.GetProperty<TimeSpan>("vip").OnChanged += _ => shopController.NotifyAffordabilityChanged();
+            playerData.GetProperty<int>(HealthKeys.Health).OnChanged += _ => shopController.NotifyAffordabilityChanged();
+            playerData.GetProperty<int>(GoldKeys.Gold).OnChanged += _ => shopController.NotifyAffordabilityChanged();
+            playerData.GetProperty<string>(LocationKeys.Location).OnChanged += _ => shopController.NotifyAffordabilityChanged();
+            playerData.GetProperty<TimeSpan>(VIPKeys.VIP).OnChanged += _ => shopController.NotifyAffordabilityChanged();
         }
     }
 }
