@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Gold.Views
+namespace Gold.Views
 {
     public class GoldView : MonoBehaviour
     {
