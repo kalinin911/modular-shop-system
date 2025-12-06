@@ -31,7 +31,7 @@ namespace VIP.Views
 
         private void UpdateDisplay(TimeSpan value)
         {
-            _vipText.text = $"VIP: {(int)value.TotalSeconds} сек";
+            _vipText.text = $"VIP: {(int)value.TotalSeconds} sec";
         }
 
         private void OnCheatClicked()

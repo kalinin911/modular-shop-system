@@ -28,6 +28,11 @@ namespace Shop.Views
             _nameText.text = _bundle.Name;
             
             _buyButton.onClick.AddListener(OnBuyClicked);
+            
+            _controller.OnPurchaseStarted += HandlePurchaseStarted;
+            _controller.OnPurchaseCompleted += HandlePurchaseCompleted;
+            _controller.OnAffordabilityChanged += UpdateAffordability;
+            
             _infoButton?.onClick.AddListener(() => OnInfoClicked?.Invoke(_bundle));
         }
 
@@ -41,7 +46,7 @@ namespace Shop.Views
         private void HandlePurchaseStarted(BundleConfig bundle)
         {
             if (bundle != _bundle) return;
-
+            
             _isPurchasing = true;
             _buyButton.interactable = false;
             _buyButtonText.text = "Working...";
@@ -59,8 +64,9 @@ namespace Shop.Views
         private void UpdateAffordability()
         {
             if(_isPurchasing) return;
-
-            _buyButton.interactable = _controller.CanAfford(_bundle);
+    
+            var canAfford = _controller.CanAfford(_bundle);
+            _buyButton.interactable = canAfford;
         }
 
         public void HideInfoButton()
