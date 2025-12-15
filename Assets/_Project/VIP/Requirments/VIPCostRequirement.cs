@@ -20,7 +20,7 @@ namespace VIP.Requirments
         public override void Apply(IPlayerData playerData)
         {
             var property = playerData.GetProperty<TimeSpan>(VIPKeys.VIP);
-            property.Value = TimeSpan.FromSeconds(_seconds);
+            property.Value -= TimeSpan.FromSeconds(_seconds);
         }
     }
 }

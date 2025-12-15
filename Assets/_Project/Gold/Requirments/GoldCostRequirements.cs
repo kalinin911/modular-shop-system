@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Gold.Requirments
 {
     [CreateAssetMenu(menuName = "Shop/Requirements/Gold Cost")]
-    public class HealthCostRequirement : RequirementBase
+    public class GoldCostRequirement : RequirementBase
     {
         [SerializeField] private int _amount;
 
